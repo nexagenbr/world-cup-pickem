@@ -1,5 +1,5 @@
 insert into public.players (name) values
-  ('Gopal Baba'), ('Gopi'), ('Manvati'), ('Caru Krsna')
+  ('Gopal'), ('Gopinath'), ('Manvati'), ('Caru Krsna')
 on conflict (name) do nothing;
 
 insert into public.matches (
