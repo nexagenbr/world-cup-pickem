@@ -1,7 +1,7 @@
 import "server-only";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { shouldPollResults } from "@/lib/sync-policy";
-import { getWorldCupFixtures } from "@/lib/football/worldcup-2026";
+import { fetchWorldCupGames } from "@/lib/football/worldcup-api";
 
 export async function syncTournament(type: "fixtures" | "results") {
   const supabase = createAdminClient();
@@ -16,8 +16,13 @@ export async function syncTournament(type: "fixtures" | "results") {
   if (started.error) throw new Error(started.error.message);
 
   try {
-    // Use built-in World Cup 2026 fixtures
-    const fixtures = getWorldCupFixtures();
+    // Fetch live data from WorldCup API
+    const fixtures = await fetchWorldCupGames();
+
+    if (fixtures.length === 0) {
+      throw new Error("No fixtures received from API");
+    }
+
     const { error } = await supabase.from("matches").upsert(fixtures, { onConflict: "api_match_id" });
     if (error) throw new Error(error.message);
 
@@ -26,11 +31,20 @@ export async function syncTournament(type: "fixtures" | "results") {
       if (graded.error) throw new Error(graded.error.message);
     }
 
-    await supabase.from("sync_logs").update({ status: "success", fixtures_processed: fixtures.length, finished_at: new Date().toISOString() }).eq("id", started.data.id);
+    await supabase.from("sync_logs").update({
+      status: "success",
+      fixtures_processed: fixtures.length,
+      finished_at: new Date().toISOString()
+    }).eq("id", started.data.id);
+
     return { processed: fixtures.length };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown sync error";
-    await supabase.from("sync_logs").update({ status: "failed", message, finished_at: new Date().toISOString() }).eq("id", started.data.id);
+    await supabase.from("sync_logs").update({
+      status: "failed",
+      message,
+      finished_at: new Date().toISOString()
+    }).eq("id", started.data.id);
     throw error;
   }
 }
