@@ -1,0 +1,78 @@
+
+> world-cup-pickem@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.7
+   - Local:        http://localhost:3000
+   - Network:      http://10.5.0.2:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 8.5s
+ ○ Compiling / ...
+ ✓ Compiled / in 52.4s (12786 modules)
+ GET / 200 in 378ms
+ GET / 200 in 374ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 3.7s (7991 modules)
+ GET /favicon.ico 200 in 4298ms
+ ○ Compiling /select-player ...
+ ✓ Compiled /select-player in 7.4s (12839 modules)
+ GET /select-player 200 in 9913ms
+ GET /select-player 200 in 631ms
+ GET /select-player 200 in 392ms
+ ○ Compiling /today ...
+ ✓ Compiled /today in 5s (12839 modules)
+ GET /today 200 in 6335ms
+ GET /today 200 in 590ms
+ GET /today 200 in 198ms
+ GET /today 200 in 256ms
+ GET /today 200 in 219ms
+ GET /today 200 in 263ms
+ GET /today 200 in 273ms
+ GET /today 200 in 258ms
+ GET /today 200 in 321ms
+ GET /today 200 in 373ms
+ ○ Compiling /api/picks ...
+ ✓ Compiled /api/picks in 2.8s (12847 modules)
+ GET /api/picks?playerId=96c15cf1-39d7-4baa-bc31-f98966ffa6b3 200 in 3187ms
+ GET /api/picks?playerId=96c15cf1-39d7-4baa-bc31-f98966ffa6b3 200 in 3250ms
+ GET /today 200 in 441ms
+ GET /select-player 200 in 219ms
+ GET /today 200 in 172ms
+ GET /api/picks?playerId=2f95efe8-d684-4a57-be28-9e26b5e14c33 200 in 105ms
+ GET /api/picks?playerId=2f95efe8-d684-4a57-be28-9e26b5e14c33 200 in 109ms
+ POST /api/picks 200 in 81ms
+ ○ Compiling /picks ...
+ ✓ Compiled /upcoming in 13.5s (12857 modules)
+ GET / 200 in 10046ms
+ GET /favicon.ico 200 in 80ms
+ GET /select-player 200 in 133ms
+ ✓ Compiled in 4.3s (4805 modules)
+ ✓ Compiled in 648ms (4805 modules)
+ GET /select-player 200 in 811ms
+ GET /select-player 200 in 111ms
+ ✓ Compiled in 759ms (4805 modules)
+ ✓ Compiled in 837ms (4805 modules)
+ GET /select-player 200 in 1959ms
+ GET /select-player 200 in 136ms
+ GET /today 200 in 656ms
+ GET /api/picks?playerId=2f95efe8-d684-4a57-be28-9e26b5e14c33 200 in 237ms
+ GET /api/picks?playerId=2f95efe8-d684-4a57-be28-9e26b5e14c33 200 in 238ms
+ ✓ Compiled in 1294ms (4805 modules)
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 15.8s (13175 modules)
+ GET /today 500 in 19215ms
+ GET /today 200 in 1104ms
+ GET /today 200 in 160ms
+ GET /today 200 in 193ms
+ GET /today 200 in 1114ms
+ GET /api/picks?playerId=2f95efe8-d684-4a57-be28-9e26b5e14c33 200 in 320ms
+ GET /api/picks?playerId=2f95efe8-d684-4a57-be28-9e26b5e14c33 200 in 324ms
+ GET / 200 in 572ms
+ GET /today 200 in 556ms
+ GET /api/picks?playerId=2f95efe8-d684-4a57-be28-9e26b5e14c33 200 in 77ms
+ GET /api/picks?playerId=2f95efe8-d684-4a57-be28-9e26b5e14c33 200 in 111ms
+   Reload env: .env.local
+ ✓ Compiled in 7.1s (13086 modules)
+[?25h

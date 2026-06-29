@@ -1,0 +1,3 @@
+"use client";
+import { Button } from "@/components/ui/button";
+export default function ErrorPage({ reset }: { error: Error & { digest?: string }; reset: () => void }) { return <main className="grid min-h-[100dvh] place-items-center px-5"><div className="max-w-md text-center"><p className="text-xs font-semibold uppercase tracking-[.18em] text-danger">Something went wrong</p><h1 className="mt-3 text-3xl font-semibold tracking-tight">The match data could not load.</h1><p className="mt-3 text-sm text-muted">Check the connection and try again.</p><Button className="mt-7" onClick={reset}>Try again</Button></div></main>; }
