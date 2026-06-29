@@ -14,16 +14,28 @@ export function parsePickBody(body: unknown): {
   playerId: string;
   matchId: string;
   prediction: Prediction;
+  homeScore?: number;
+  awayScore?: number;
 } {
   if (!body || typeof body !== "object") throw new Error("Invalid pick");
   const value = body as Record<string, unknown>;
   if (!uuid.test(String(value.playerId)) || !uuid.test(String(value.matchId)) || !isPrediction(value.prediction)) {
     throw new Error("Invalid pick");
   }
+  const homeScore = value.homeScore !== undefined ? Number(value.homeScore) : undefined;
+  const awayScore = value.awayScore !== undefined ? Number(value.awayScore) : undefined;
+  if (homeScore !== undefined && (isNaN(homeScore) || homeScore < 0 || homeScore > 99)) {
+    throw new Error("Invalid home score");
+  }
+  if (awayScore !== undefined && (isNaN(awayScore) || awayScore < 0 || awayScore > 99)) {
+    throw new Error("Invalid away score");
+  }
   return {
     playerId: String(value.playerId),
     matchId: String(value.matchId),
     prediction: value.prediction,
+    homeScore,
+    awayScore,
   };
 }
 

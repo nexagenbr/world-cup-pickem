@@ -4,9 +4,30 @@ export function scorePick(
   prediction: Prediction,
   result: Prediction | null,
   finished: boolean,
+  exactHomeScore?: number,
+  exactAwayScore?: number,
+  actualHomeScore?: number,
+  actualAwayScore?: number,
 ): number | null {
   if (!finished || !result) return null;
-  return prediction === result ? 3 : 0;
+
+  // Base points for correct winner/draw
+  let points = prediction === result ? 3 : 0;
+
+  // Bonus point for exact score in group stage
+  if (
+    points === 3 &&
+    exactHomeScore !== undefined &&
+    exactAwayScore !== undefined &&
+    actualHomeScore !== undefined &&
+    actualAwayScore !== undefined &&
+    exactHomeScore === actualHomeScore &&
+    exactAwayScore === actualAwayScore
+  ) {
+    points += 1; // +1 bonus for exact score
+  }
+
+  return points;
 }
 
 export function calculateStreaks(results: boolean[]) {

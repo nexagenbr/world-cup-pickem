@@ -24,6 +24,18 @@ describe("scorePick", () => {
   it("does not grade unfinished matches", () => {
     expect(scorePick("HOME", "HOME", false)).toBeNull();
   });
+
+  it("awards bonus point for exact score prediction", () => {
+    expect(scorePick("HOME", "HOME", true, 2, 1, 2, 1)).toBe(4);
+  });
+
+  it("awards only 3 points when correct winner but wrong score", () => {
+    expect(scorePick("HOME", "HOME", true, 2, 0, 2, 1)).toBe(3);
+  });
+
+  it("awards 3 points for knockout correct winner regardless of score", () => {
+    expect(scorePick("HOME", "HOME", true, 2, 0, 1, 0)).toBe(3);
+  });
 });
 
 describe("calculateStreaks", () => {

@@ -95,6 +95,7 @@ Vercel Hobby only permits daily native cron schedules, so recurring synchronizat
 ## Scoring and privacy
 
 - Group stage: home win, draw, or away win; correct = 3 points.
+- Group stage: exact score prediction; correct = **bonus +1 point** (total 4 pts).
 - Knockout stage: select the team that advances; correct = 3 points.
 - Picks can be changed until database time reaches kickoff.
 - Other players' picks are returned only after kickoff.

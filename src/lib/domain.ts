@@ -37,6 +37,8 @@ export type Pick = {
   player_id: string;
   match_id: string;
   prediction: Prediction;
+  home_score?: number;
+  away_score?: number;
   points: number | null;
   created_at: string;
   updated_at: string;
@@ -51,6 +53,7 @@ export type LeaderboardRow = {
   correct_picks: number;
   incorrect_picks: number;
   pending_picks: number;
+  exact_scores: number;
   accuracy: number;
   current_streak: number;
   longest_streak: number;

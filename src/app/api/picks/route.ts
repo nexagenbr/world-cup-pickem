@@ -16,6 +16,8 @@ export async function POST(request: Request) {
       p_player_id: pick.playerId,
       p_match_id: pick.matchId,
       p_prediction: pick.prediction,
+      p_home_score: pick.homeScore ?? null,
+      p_away_score: pick.awayScore ?? null,
     });
     if (result.error) throw new Error(result.error.message);
     return Response.json(result.data);
